@@ -79,11 +79,9 @@ export const FileUploader = ({ onSuccess }) => {
 // Rendering the component UI
 return (
   <div className={styles.fileUploaderContainer}>
-    <div className={styles.banner}>
-      <img src="/banner.jpg" alt="Resume Builder Banner" className={styles.bannerImage} />
-    </div>
     <div className={styles.header}>
-        <h1 className={styles.bannerTitle}>AI Resume Assistant ✨✨</h1>
+      <img src="/banner.jpg" alt="Resume Builder Banner" className={styles.bannerImage} />
+      <h1 className={styles.bannerTitle}>AI Resume Assistant ✨✨</h1>
       <p className={styles.bannerTagline}>Upload your resume, copy/paste job ad text and get started</p>
     </div>
     {loading && <Loader />}    
