@@ -13,20 +13,45 @@
 }
 
 .footer {
+  background-color: #f8f8f8; /* Light grey background */
+  color: #333; /* Dark grey text */
+  padding: 20px 0;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+}
+
+.footerContent {
+  max-width: 1200px;
+  margin: auto;
   display: flex;
-  flex: 1;
-  padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
-  justify-content: center;
+  justify-content: space-around; /* Adjust as needed */
   align-items: center;
 }
 
 .footer a {
-  display: flex;
-  justify-content: center;
+  color: #0077b5; /* LinkedIn blue color */
+  text-decoration: none;
+  margin: 0 10px;
+  display: inline-flex;
   align-items: center;
-  flex-grow: 1;
 }
+
+.footer a img.icon {
+  width: 24px;
+  margin-right: 8px;
+}
+
+@media screen and (max-width: 600px) {
+  .footerContent {
+    flex-direction: column;
+  }
+
+  .footer a {
+    margin-bottom: 10px;
+  }
+}
+
 
 .title a {
   color: #0070f3;
