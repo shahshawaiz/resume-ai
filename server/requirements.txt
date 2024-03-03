@@ -1,0 +1,8 @@
+python-dotenv
+PyMuPDF
+openai
+pdf2docx
+flask-restful
+Flask-Cors
+fpdf2
+cmake
