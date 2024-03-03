@@ -19,7 +19,8 @@
 
 .fileUploaderContainer {
   font-family: 'Roboto', sans-serif;
-  max-width: 600px;
+  max-width: 90%;
+  max-height: auto;
   margin: 30px auto;
   padding: 20px;
   background: #fff;
@@ -102,8 +103,10 @@
 }
 
 .bannerImage {
-  width: 100%;
-  height: auto;
+  max-height: 200px; /* Limit the height to 200px or any value you prefer */
+  width: 100%; /* Make image take the full width of the container */
+  height: auto; /* Ensure the height scales proportionally */
+  object-fit: cover; /* Ensures the image covers the area without stretching */
   border-top-left-radius: 8px; /* Match the container border-radius */
   border-top-right-radius: 8px;
 }
