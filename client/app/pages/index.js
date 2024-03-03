@@ -29,7 +29,7 @@ export default function Home() {
         <a href="https://twitter.com/shasaheb" target="_blank" rel="noopener noreferrer">
           <img src="/x.png" alt="X" className={styles.icon} /> X
         </a>        
-        <a href="https://www.buymeacoffee.com/yourusername" target="_blank" rel="noopener noreferrer">
+        <a href="https://py.pl/1YzFeh" target="_blank" rel="noopener noreferrer">
           <img src="/buy-me-a-coffee.png" alt="Buy Me a Coffee" className={styles.icon} /> Buy Me a Coffee
         </a>
       </div>
