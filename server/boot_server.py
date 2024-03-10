@@ -7,13 +7,15 @@ from flask import Flask, request, jsonify
 from werkzeug.utils import secure_filename
 import json
 
-from server import base
+import base
 
+# get env debug
+DEBUG = os.environ.get('DEBUG', False)
 
 # init server
 app = Flask(__name__)
 app.config['CORS_HEADERS'] = 'Content-Type'
-app.config['debug'] = True
+app.config['debug'] = False
 CORS(app)
 
 # Configuration
@@ -93,5 +95,9 @@ def ping():
     print("asd")
     return jsonify({'error': 'ping'}), 200
 
+@app.route('/api/test', methods=['GET'])
+def test():
+    return jsonify({'message': 'This is a test.'}), 200
+
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)	# run server
+    app.run(host='0.0.0.0', port=8000)	# run server

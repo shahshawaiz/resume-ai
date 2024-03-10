@@ -2,12 +2,14 @@ version: '3.8'
 
 services:
   resume-generator:
-    build: .
+    hostname: resume-generator
+    build: 
+      context: .
+      dockerfile: Dockerfile # Make sure to create a Dockerfile.prod for production
     ports:
-      - "3000:3000"
-      - "5000:5000"
-    volumes:
-      - .:/app
-      - /app/node_modules
-      - /app/client/node_modules
+      - "3000:3000" # Expose only necessary ports
+      - "8000:8000"
+    environment: # Example environment variables; adjust according to your needs
+      NODE_ENV: production
+    # Removed volumes for code and node_modules, as the code should be built into the image
     command: bash /app/scripts/run_server.sh

@@ -19,9 +19,8 @@
 
 .fileUploaderContainer {
   font-family: 'Roboto', sans-serif;
-  max-width: 90%;
+  /* width: 90%; */
   max-height: auto;
-  margin: 30px auto;
   padding: 20px;
   background: #fff;
   border-radius: 8px;

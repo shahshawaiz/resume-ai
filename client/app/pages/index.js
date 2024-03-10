@@ -18,6 +18,8 @@ export default function Home() {
       <Head>
         <title>Upload and Generate</title>
       </Head>
+      <div>    
+    </div>
       <FileUploader onSuccess={onSuccess} />
       <ToastContainer />
       <footer className={styles.footer}>
