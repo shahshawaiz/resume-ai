@@ -1,11 +1,11 @@
-# Base image
-FROM node:16 AS base
+# Start with the official Python image
+FROM python:3.8-slim as base
 
-# Set the working directory
-WORKDIR /app
-
-# Install Python
-RUN apt-get update && apt-get install -y python3 python3-pip && rm -rf /var/lib/apt/lists/*
+# Install Node.js
+RUN apt-get update && apt-get install -y curl && \
+    curl -fsSL https://deb.nodesource.com/setup_current.x | bash - && \
+    apt-get install -y nodejs && \
+    rm -rf /var/lib/apt/lists/*
 
 # Upgrade pip, setuptools, and wheel to the latest versions
 RUN pip3 install --upgrade pip setuptools wheel
