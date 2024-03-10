@@ -19,6 +19,8 @@ export const FileUploader = ({ onSuccess }) => {
   const [coverDocxUrl, setCoverDocxUrl] = useState(''); // Add this line
   const [contentCover, setContentCover] = useState('');
 
+  const flaskApiUrl = process.env.NEXT_PUBLIC_FLASK_API_URL;
+
   // Handles file selection
   const onInputChange = (e) => {
     setFiles(e.target.files);
@@ -44,7 +46,7 @@ export const FileUploader = ({ onSuccess }) => {
         formData.append("file", files[0]);
         
         // Uploading the file
-        await axios.post('http://127.0.0.1:5000/api/upload', formData);
+        await axios.post(`${flaskApiUrl}/upload`, formData);
         toast.success('Resume Recevied! (1/2)');
         
         // Preparing data for CV and cover letter generation
@@ -53,7 +55,7 @@ export const FileUploader = ({ onSuccess }) => {
         generateData.append("resume_path", `server/docs/${files[0].name}`);
 
         // Generating CV and cover letter
-        const { data } = await axios.post('http://127.0.0.1:5000/api/generate', generateData);
+        const { data } = await axios.post(`${flaskApiUrl}/generate`, generateData);
         
         // Updating state with the URLs and cover letter content
         setResumeUrl(data.resume_url);
@@ -98,14 +100,14 @@ return (
       </textarea>
       <button type="submit" className={styles.submitButton}>Submit</button>
     </form>
-    {resumeUrl && <a href={"http://127.0.0.1:5000/api/download?filename=" + resumeUrl} className={styles.downloadLink} target='_blank' rel="noopener noreferrer" download>Download Improved Resume (PDF)</a>}
+    {resumeUrl && <a href={`${flaskApiUrl}/download?filename=` + resumeUrl} className={styles.downloadLink} target='_blank' rel="noopener noreferrer" download>Download Improved Resume (PDF)</a>}
     <div className="flex">
       <div>
-        {resumeDocxUrl && <a href={"http://127.0.0.1:5000/api/download?filename=" + resumeDocxUrl} className={styles.downloadLink} target='_blank' rel="noopener noreferrer" download>Download Improved Resume (Word Document)</a>}
-        {coverUrl && <a href={"http/api/download?filename=" + coverUrl} className={styles.downloadLink} target='_blank' rel="noopener noreferrer" download>Download Cover Letter (PDF)</a>}
+        {resumeDocxUrl && <a href={`${flaskApiUrl}/download?filename=` + resumeDocxUrl} className={styles.downloadLink} target='_blank' rel="noopener noreferrer" download>Download Improved Resume (Word Document)</a>}
+        {coverUrl && <a href={`${flaskApiUrl}/download?filename=` + coverUrl} className={styles.downloadLink} target='_blank' rel="noopener noreferrer" download>Download Cover Letter (PDF)</a>}
       </div>
       <div className="flex-col flex-wrap">
-        {coverDocxUrl && <a href={"http://127.0.0.1:5000/api/download?filename=" + coverDocxUrl} className={styles.downloadLink} target='_blank' rel="noopener noreferrer" download>Download Optimized Cover Letter (Word Document)</a>}
+        {coverDocxUrl && <a href={`${flaskApiUrl}/download?filename=` + coverDocxUrl} className={styles.downloadLink} target='_blank' rel="noopener noreferrer" download>Download Optimized Cover Letter (Word Document)</a>}
         {contentCover && <p className={styles.coverLetterContent}>{parse(contentCover)}</p>}
       </div>
     </div>

@@ -37,9 +37,10 @@ RUN chmod +x /app/scripts/run_server.sh
 
 # Expose the port your server listens on
 EXPOSE 3000
-EXPOSE 5000
+EXPOSE 8000
 
-WORKDIR /app/server
+WORKDIR /app 
+
 
 # Command to run the server.
 # The CMD should call the init_server.sh script which should start both the Python server and the Next.js app.

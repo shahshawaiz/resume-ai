@@ -2,3 +2,8 @@ server/__pycache__/**
 
 # hide server/docs
 server/docs/**
+
+# 
+client/app/.env.local
+client/app/.env.production
+.env
