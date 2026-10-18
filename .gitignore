@@ -7,3 +7,12 @@ server/docs/**
 client/app/.env.local
 client/app/.env.production
 .env
+# Secrets and real documents never go into git
+.env.*
+!.env.example
+*.pem
+*.key
+# uploaded/generated files (real CVs) stay local
+client/app/server/public/*
+!client/app/server/public/.gitkeep
+server/uploads/**
