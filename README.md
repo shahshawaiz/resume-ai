@@ -1,5 +1,7 @@
 # Resume AI
 
+_By [Shawaiz Shah](https://shawaiz.de) · AI expert & Senior Data Scientist, Berlin · [more side projects](https://shawaiz.de/projects/)_
+
 Tailor your CV to a specific job ad and get a matching cover letter. Upload your CV (PDF) and paste the job description: Resume AI shows how well the two match, rewrites individual CV lines in the job ad's vocabulary (without inventing experience) and drafts a cover letter, exported as PDF or Word.
 
 **Who it's for:** job seekers who send many applications and want each CV to fit the role, without uploading their CV to a third-party service.
@@ -54,6 +56,10 @@ Frontend: http://localhost:3000 · API: http://localhost:8000
 ## Roadmap
 
 See [ROADMAP.md](ROADMAP.md).
+
+## Author
+
+Built and maintained by **[Shawaiz Shah](https://shawaiz.de)**: portfolio, contact and more projects at [shawaiz.de](https://shawaiz.de) · [GitHub](https://github.com/shahshawaiz) · [LinkedIn](https://www.linkedin.com/in/shawaiz-shah-32b40537).
 
 ## License
 
