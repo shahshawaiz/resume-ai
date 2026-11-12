@@ -1,5 +1,21 @@
 server/__pycache__/**
 
+# dependencies, caches and build output
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+coverage/
+build/
+dist/
+.next/
+out/
+.DS_Store
+
 # hide server/docs
 server/docs/**
 
