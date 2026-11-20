@@ -72,13 +72,37 @@ Keep everything local, in one file the user owns.
 - [ ] One job ad against several CV variants, side by side
 - [ ] Country presets: German CV conventions (photo, date of birth, Lebenslauf section names) vs US/UK (no photo, no personal data), with a privacy check that flags personal data before export
 
-## 7. Interfaces
+## 7. Career timeline and skill-duration engine
+
+Turn the free-text experience section into structured, dated data, so requirements like "3+ years of Python" or "2 years in a lead role" can be checked per skill, not just for the whole CV.
+
+- [ ] **Role segmentation:** split the experience section into roles (title, employer, location, start, end, bullets), whatever the layout: title-first, employer-first, dates on the left, right or on their own line
+- [ ] **Date normalisation:** parse every common format ("03/2021", "Mar 2021", "März 2021", "2021–present", "seit 2021", "Q1 2021", year only) into month ranges, with an explicit precision flag (month vs year only)
+- [ ] **Timeline checks:** gaps over a configurable length, overlapping roles (concurrent jobs vs date errors), roles in reverse order, end dates in the future
+- [ ] **Skill duration:** for every glossary term, add up the months of the roles whose bullets give evidence for it, merging overlapping roles so time is not counted twice. Report years per skill and the date of last use
+- [ ] **Seniority track:** classify each title (intern, junior, mid, senior, lead, head) with rule tables per industry, and compute months at each level
+- [ ] **Requirement check:** pull structured experience requirements out of the job ad ("3+ years Python", "at least 5 years in accounting", "mindestens 2 Jahre Führungserfahrung") and compare them with the computed durations: met, close (within 6 months), not met
+- [ ] **Done when:** on 40 hand-labelled fictional CVs (English and German, at least 5 layouts), role fields reach F1 ≥ 0.9, parsed date ranges match exactly for ≥ 95% of roles, and per-skill durations are within one month of the labels
+
+## 8. One-page CV optimizer
+
+Choose and arrange the CV content that best fits a given job within a page budget, measured on the real rendered layout rather than by word count.
+
+- [ ] **Content model:** every bullet, skill line and summary sentence becomes a block with a measured rendered height (PyMuPDF text metrics at the CV's font and width), its glossary terms, its role and its date
+- [ ] **Objective:** maximise weighted coverage of the job's requirements (required > other > nice to have, using the section 2 weights), with diminishing returns for evidence repeated for the same term, a bonus for recent roles and a penalty for dropping a role entirely
+- [ ] **Constraints:** total height ≤ page budget (1 or 2 pages), at least N bullets per kept role, role order stays chronological, fixed blocks (header, education, contact) always kept, user-pinned or banned bullets respected
+- [ ] **Solver:** exact branch-and-bound for typical CV sizes (up to ~60 blocks), with a greedy plus local-search fallback for larger ones and a time limit. Both are pure Python, so it runs offline
+- [ ] **Explain the result:** which bullets were dropped and what each one would have added, which requirements are left uncovered, and how much space is left
+- [ ] **Render:** produce the optimised CV through the PDF/DOCX exporters and check after rendering that it really fits the page budget. If it doesn't, tighten the budget and solve again
+- [ ] **Done when:** on 20 fictional CV/job pairs the exact solver finds the proven optimum within 2 seconds, the greedy fallback reaches ≥ 95% of it, and every rendered output fits the page budget
+
+## 9. Interfaces
 
 - [ ] **Local web UI:** Flask on 127.0.0.1 with plain HTML/CSS/JS (no CDN, no external fonts); CV upload or paste, job ad, glossary picker; tabs for match, changes (accept/reject each), checks and cover letter; downloads for every export
 - [ ] **Command line:** `python -m resume_ai analyze CV JOB` with a readable report and `--json` output for scripting; `serve` to start the web UI
 - [ ] **Done when:** the full flow (upload PDF → analyze → accept changes → download original-layout PDF) works end to end in the browser and is covered by tests
 
-## 8. Quality and tooling
+## 10. Quality and tooling
 
 - [ ] **pytest suite:** unit tests for glossary matching (aliases, case rules, word boundaries), job-ad parsing, matching, each rewrite rule, the cover letter, PDF/DOCX export and the in-place PDF rewrite; web and CLI tests once those exist
 
