@@ -1,0 +1,16 @@
+Machine Learning Engineer (m/w/d) – Nordlicht Health GmbH, Berlin
+
+Nordlicht Health builds AI products that help clinics predict patient demand and plan staff.
+
+Your tasks
+- Design, train and deploy machine learning models for time-series forecasting
+- Build production ML pipelines on Google Cloud (Vertex AI, BigQuery)
+- Own MLOps: CI/CD, monitoring and model retraining
+- Work closely with product and clinical experts
+
+Your profile
+- 3+ years of experience with Python, scikit-learn or PyTorch
+- Experience with forecasting, recommendation or NLP systems in production
+- Strong SQL and experience with cloud platforms (GCP preferred)
+- Docker and Kubernetes; Airflow is a plus
+- Good communication skills in English; German is a plus

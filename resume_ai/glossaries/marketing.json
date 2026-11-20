@@ -1,0 +1,30 @@
+{
+  "industry": "marketing",
+  "label": "Marketing and growth",
+  "signals": ["marketing", "growth", "brand", "content", "seo", "performance marketing", "campaign", "social media", "communications manager"],
+  "terms": [
+    {"term": "SEO", "aliases": ["search engine optimization", "search engine optimisation"], "category": "channel"},
+    {"term": "SEM", "aliases": ["search engine marketing", "paid search", "PPC", "pay-per-click"], "category": "channel"},
+    {"term": "Google Ads", "aliases": ["AdWords", "Google AdWords"], "category": "tool"},
+    {"term": "Meta Ads", "aliases": ["Facebook Ads", "Instagram Ads", "paid social"], "category": "tool"},
+    {"term": "Google Analytics", "aliases": ["GA4", "Universal Analytics", "web analytics"], "category": "tool"},
+    {"term": "HubSpot", "aliases": [], "category": "tool"},
+    {"term": "Salesforce", "aliases": ["Salesforce Marketing Cloud", "CRM"], "category": "tool"},
+    {"term": "marketing automation", "aliases": ["Marketo", "Pardot", "drip campaigns"], "category": "practice"},
+    {"term": "email marketing", "aliases": ["newsletters", "newsletter", "CRM campaigns", "Mailchimp"], "category": "channel"},
+    {"term": "content marketing", "aliases": ["content strategy", "content creation", "copywriting", "blog posts"], "category": "channel"},
+    {"term": "social media", "aliases": ["social media marketing", "LinkedIn", "Instagram", "TikTok", "community management"], "category": "channel"},
+    {"term": "performance marketing", "aliases": ["paid acquisition", "user acquisition", "paid media"], "category": "channel"},
+    {"term": "brand management", "aliases": ["branding", "brand strategy", "brand awareness"], "category": "discipline"},
+    {"term": "campaign management", "aliases": ["campaigns", "campaign", "go-to-market", "GTM"], "category": "discipline"},
+    {"term": "A/B testing", "aliases": ["AB testing", "split testing", "conversion rate optimization", "CRO"], "category": "practice"},
+    {"term": "market research", "aliases": ["customer research", "competitor analysis", "competitive analysis", "surveys"], "category": "discipline"},
+    {"term": "ROI", "aliases": ["ROAS", "return on investment", "return on ad spend"], "category": "metric"},
+    {"term": "CAC", "aliases": ["customer acquisition cost", "CPA", "cost per acquisition"], "category": "metric"},
+    {"term": "conversion rate", "aliases": ["conversions", "conversion"], "category": "metric"},
+    {"term": "marketing budget", "aliases": ["media budget", "ad budget", "ad spend"], "category": "discipline"},
+    {"term": "B2B marketing", "aliases": ["B2B", "account-based marketing", "ABM"], "category": "discipline"},
+    {"term": "B2C marketing", "aliases": ["B2C", "consumer marketing"], "category": "discipline"},
+    {"term": "dashboards", "aliases": ["marketing reporting", "reporting", "dashboard"], "category": "practice"}
+  ]
+}

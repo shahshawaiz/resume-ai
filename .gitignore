@@ -1,7 +1,4 @@
-server/__pycache__/**
-
 # dependencies, caches and build output
-node_modules/
 .venv/
 venv/
 __pycache__/
@@ -9,26 +6,19 @@ __pycache__/
 .pytest_cache/
 .coverage
 htmlcov/
-coverage/
 build/
 dist/
-.next/
-out/
+*.egg-info/
 .DS_Store
 
-# hide server/docs
-server/docs/**
-
-# 
-client/app/.env.local
-client/app/.env.production
-.env
 # Secrets and real documents never go into git
+.env
 .env.*
-!.env.example
 *.pem
 *.key
-# uploaded/generated files (real CVs) stay local
-client/app/server/public/*
-!client/app/server/public/.gitkeep
-server/uploads/**
+
+# old local uploads and generated files (real CVs) stay local
+server/
+client/
+uploads/
+output/

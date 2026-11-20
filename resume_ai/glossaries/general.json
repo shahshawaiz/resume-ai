@@ -1,0 +1,29 @@
+{
+  "industry": "general",
+  "label": "General / cross-industry",
+  "signals": [],
+  "terms": [
+    {"term": "communication", "aliases": ["communication skills", "communicator"], "category": "soft skill"},
+    {"term": "leadership", "aliases": ["team lead", "led a team", "people management"], "category": "soft skill"},
+    {"term": "mentoring", "aliases": ["mentored", "coaching", "coached"], "category": "soft skill"},
+    {"term": "stakeholder management", "aliases": ["stakeholders", "stakeholder"], "category": "soft skill"},
+    {"term": "project management", "aliases": ["project manager", "managed projects"], "category": "soft skill"},
+    {"term": "problem solving", "aliases": ["problem-solving"], "category": "soft skill"},
+    {"term": "collaboration", "aliases": ["cross-functional", "teamwork", "collaborated"], "category": "soft skill"},
+    {"term": "presentation", "aliases": ["presentations", "presented"], "category": "soft skill"},
+    {"term": "Agile", "aliases": ["agile methodology", "agile methods"], "category": "method"},
+    {"term": "Scrum", "aliases": ["scrum master", "sprints"], "category": "method"},
+    {"term": "Kanban", "aliases": [], "category": "method"},
+    {"term": "Jira", "aliases": [], "category": "tool"},
+    {"term": "Confluence", "aliases": [], "category": "tool"},
+    {"term": "Microsoft Excel", "aliases": ["Excel", "MS Excel", "spreadsheets"], "category": "tool"},
+    {"term": "Microsoft Office", "aliases": ["MS Office", "Office 365", "Microsoft 365"], "category": "tool"},
+    {"term": "English", "aliases": ["Englisch"], "category": "language"},
+    {"term": "German", "aliases": ["Deutsch"], "category": "language"},
+    {"term": "French", "aliases": ["Französisch"], "category": "language"},
+    {"term": "Spanish", "aliases": ["Spanisch"], "category": "language"},
+    {"term": "Master's degree", "aliases": ["M.Sc.", "MSc", "M.A.", "Masters", "Master of Science", "Master degree"], "category": "education"},
+    {"term": "Bachelor's degree", "aliases": ["B.Sc.", "BSc", "B.A.", "Bachelor of Science", "Bachelor degree"], "category": "education"},
+    {"term": "PhD", "aliases": ["Ph.D.", "doctorate", "doctoral degree"], "category": "education"}
+  ]
+}

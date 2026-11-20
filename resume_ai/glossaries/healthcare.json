@@ -1,0 +1,28 @@
+{
+  "industry": "healthcare",
+  "label": "Healthcare and life sciences",
+  "signals": ["nurse", "nursing", "clinical", "patient", "hospital", "physician", "pharma", "medical", "healthcare", "care"],
+  "terms": [
+    {"term": "patient care", "aliases": ["patient-centred care", "patient-centered care", "direct patient care"], "category": "clinical"},
+    {"term": "patient assessment", "aliases": ["patient assessments", "triage", "vital signs"], "category": "clinical"},
+    {"term": "medication administration", "aliases": ["administering medication", "medication management"], "category": "clinical"},
+    {"term": "care planning", "aliases": ["care plans", "care plan"], "category": "clinical"},
+    {"term": "electronic health records", "aliases": ["EHR", "EMR", "electronic medical records", "Epic", "Cerner"], "category": "tool"},
+    {"term": "infection control", "aliases": ["infection prevention", "hygiene standards"], "category": "clinical"},
+    {"term": "BLS", "aliases": ["Basic Life Support", "CPR"], "category": "certification"},
+    {"term": "ACLS", "aliases": ["Advanced Cardiovascular Life Support"], "category": "certification"},
+    {"term": "HIPAA", "aliases": ["patient confidentiality", "GDPR"], "category": "compliance"},
+    {"term": "Good Clinical Practice", "aliases": ["GCP guidelines", "ICH-GCP", "ICH GCP"], "category": "compliance"},
+    {"term": "clinical trials", "aliases": ["clinical studies", "clinical research", "clinical trial"], "category": "research"},
+    {"term": "pharmacovigilance", "aliases": ["drug safety", "adverse event reporting"], "category": "research"},
+    {"term": "regulatory affairs", "aliases": ["regulatory submissions", "FDA", "EMA", "MDR"], "category": "compliance"},
+    {"term": "quality assurance", "aliases": ["QA", "GMP", "Good Manufacturing Practice", "ISO 13485"], "category": "compliance", "case_sensitive_aliases": ["QA"]},
+    {"term": "medical coding", "aliases": ["ICD-10", "CPT coding"], "category": "administration"},
+    {"term": "intensive care", "aliases": ["ICU", "critical care"], "category": "clinical"},
+    {"term": "emergency care", "aliases": ["emergency department", "A&E", "ER"], "category": "clinical", "case_sensitive_aliases": ["ER"]},
+    {"term": "wound care", "aliases": ["wound management"], "category": "clinical"},
+    {"term": "multidisciplinary team", "aliases": ["interdisciplinary team", "MDT", "care team"], "category": "collaboration"},
+    {"term": "patient education", "aliases": ["health education", "patient counselling", "patient counseling"], "category": "clinical"},
+    {"term": "registered nurse", "aliases": ["RN", "nursing licence", "nursing license"], "category": "certification", "case_sensitive_aliases": ["RN"]}
+  ]
+}

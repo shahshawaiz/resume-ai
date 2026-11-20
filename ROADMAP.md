@@ -1,14 +1,81 @@
 # Roadmap
 
-## Next
-- [ ] Web demo: keep the original PDF layout by writing accepted changes back into the PDF (pdf-lib), like the server version does
-- [ ] Web demo: real `.docx` export instead of Word-compatible HTML
-- [ ] Server: replace the OpenAI call with a local model (Ollama / llama.cpp), keeping the paid API optional
-- [ ] Server: upgrade the Python 3.8 / Flask stack and pin dependencies
-- [ ] Automated tests for PDF text extraction and line replacement
+Resume AI is an offline, rule-based CV tailoring tool. Everything below keeps that constraint: plain Python, no network, no external services.
 
-## Later
-- [ ] Multiple CV variants per job ad, with a side-by-side comparison
-- [ ] German and English UI
-- [ ] ATS-style checks: section order, date formats, length
-- [ ] Track applications (job ad, tailored CV, letter) locally in IndexedDB
+## Done (base version)
+
+- [x] PDF and text CV parsing into sections and bullets (PyMuPDF)
+- [x] Job-ad parsing into required, nice-to-have and other lines; role, company, minimum years
+- [x] Five industry glossaries plus a cross-industry one, with aliases and case rules
+- [x] Weighted match score (required ×3, other ×1.5, nice to have ×1) with CV evidence for each term
+- [x] Rewrite rules: action verbs, filler words, the job ad's terminology for existing skills
+- [x] Basic ATS checks (contact details, headings, length, dates, numbers, pronouns, symbols, years)
+- [x] Cover letter template (English, German)
+- [x] Export: in-place rewrite of the original PDF, plain PDF, DOCX
+- [x] Local web UI, CLI with JSON output, pytest suite
+
+## 1. ATS compatibility report
+
+Show how an applicant tracking system would read the file, not only what the text says.
+
+- [ ] **Parse simulation:** extract the text the way a simple ATS does (reading order, no layout) and show it next to the original, with lost or reordered content highlighted
+- [ ] **Layout risks:** detect multi-column layouts, tables, text in headers and footers, text boxes, images of text and missing text layers
+- [ ] **File checks:** fonts not embedded, unusual encodings or ligatures that break copy and paste, file size, page count
+- [ ] **Field extraction test:** can name, email, phone, job titles, employers and dates be pulled out reliably? Report each field as found, ambiguous or missing
+- [ ] **ATS score:** a 0–100 compatibility score built from the checks, with each deduction explained and a fix suggested
+- **Done when:** a test set of at least 20 fictional CV PDFs (single-column, two-column, table-based, scanned) gets the expected verdict for every known layout risk
+
+## 2. Weighted keyword optimization
+
+Make the score reflect what the recruiter actually cares about.
+
+- [ ] **Importance weights:** required vs nice to have (done), plus extra weight for terms in the job title, terms repeated in the ad, and terms in the first requirement bullets
+- [ ] **Either/or groups:** "scikit-learn or PyTorch" is satisfied by one of them, not counted as two separate requirements
+- [ ] **Evidence weights:** a skill used in an experience bullet counts more than one only listed under Skills; recent roles count more than old ones
+- [ ] **Keyword stuffing guard:** flag terms repeated too often, and skills listed with no supporting bullet
+- [ ] **Optimization plan:** a ranked list of "highest-value edits", meaning missing or weakly evidenced required terms the CV could honestly cover, with the line where each fits best
+- [ ] **Configurable weights:** per-glossary weight profile in JSON, so finance and software can weigh certifications vs tools differently
+- **Done when:** on a hand-labelled set of 30 fictional CV/job pairs, the ranking of CVs by score matches the human ranking (Spearman ≥ 0.7), and either/or requirements are never double-counted
+
+## 3. Keyword scoring and explanations
+
+- [ ] Score breakdown per term: weight, where it appears in the ad, where it was found in the CV, and how many points it adds
+- [ ] "What if" view: tick the missing skills you really have and see the new score before editing
+- [ ] Category view: score per category (languages, tools, cloud, methods, soft skills)
+- [ ] Seniority signals: compare the job ad's level words (junior, senior, lead) and years with the CV's titles and date spans
+
+## 4. Data persistence, import and export
+
+Keep everything local, in one file the user owns.
+
+- [ ] **SQLite store** (`~/.resume_ai/resume_ai.db`): CVs, CV versions, job ads, analyses, accepted changes, cover letters
+- [ ] **Application tracker:** company, role, date applied, status (draft, applied, interview, offer, rejected), notes, linked CV version and letter
+- [ ] **CV versions with diff:** each tailored CV is saved as a version; side-by-side diff against the base CV
+- [ ] **Export:** full backup as JSON (schema-versioned) and the tracker as CSV
+- [ ] **Import:** restore a JSON backup (merge or replace, with conflict detection), and import job ads in bulk from `.txt`/`.md` files
+- [ ] **Schema migrations** so old backups still import after upgrades
+- **Done when:** export → wipe → import reproduces the database exactly (round-trip test), and a backup from the previous schema version imports cleanly
+
+## 5. Glossaries
+
+- [ ] More industries: legal, HR, sales, logistics and supply chain, education, engineering and manufacturing, design
+- [ ] German-language glossaries (job ads in German, mixed German/English CVs)
+- [ ] User glossaries: add your own terms and aliases in the UI, stored locally, exported with the backup
+- [ ] Glossary linter: duplicate aliases, aliases shared across terms, terms that never match the test corpus
+- [ ] Related terms (e.g. "PostgreSQL" partly evidences "SQL") with a lower weight than an exact match
+
+## 6. Better tailoring
+
+- [ ] Bullet reordering: put the most job-relevant bullets first in each role
+- [ ] Summary builder: a summary line from a template, using title, years and top matched required skills
+- [ ] Batch mode: one CV against many job ads, ranked by score (CLI and UI)
+- [ ] One job ad against several CV variants, side by side
+- [ ] Country presets: German CV conventions (photo, date of birth, Lebenslauf section names) vs US/UK (no photo, no personal data), with a privacy check that flags personal data before export
+
+## 7. Quality and tooling
+
+- [ ] Fictional benchmark corpus with labelled expected terms, sections and checks; CI runs the benchmark and fails on precision/recall regressions
+- [ ] Multi-column PDF reading order
+- [ ] Better in-place PDF rewriting: reuse the original font when it is embedded, and reflow when the new line is longer
+- [ ] Packaging: `pip install .` with a `resume-ai` command
+- [ ] Accessibility pass on the web UI (keyboard, screen reader, contrast)

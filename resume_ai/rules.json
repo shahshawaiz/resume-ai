@@ -1,0 +1,61 @@
+{
+  "weak_openers": {
+    "responsible for": "Owned",
+    "was responsible for": "Owned",
+    "in charge of": "Led",
+    "worked on": "Built",
+    "working on": "Built",
+    "helped with": "Supported",
+    "helped to": "Helped",
+    "assisted with": "Supported",
+    "assisted in": "Supported",
+    "was involved in": "Contributed to",
+    "involved in": "Contributed to",
+    "participated in": "Contributed to",
+    "tasked with": "Delivered",
+    "duties included": "Delivered",
+    "did": "Carried out"
+  },
+  "gerunds": {
+    "building": "Built", "developing": "Developed", "designing": "Designed", "creating": "Created",
+    "managing": "Managed", "leading": "Led", "running": "Ran", "writing": "Wrote",
+    "maintaining": "Maintained", "implementing": "Implemented", "analysing": "Analysed", "analyzing": "Analyzed",
+    "improving": "Improved", "coordinating": "Coordinated", "planning": "Planned", "preparing": "Prepared",
+    "delivering": "Delivered", "migrating": "Migrated", "testing": "Tested", "training": "Trained",
+    "supporting": "Supported", "organising": "Organised", "organizing": "Organized", "monitoring": "Monitored",
+    "reporting": "Reported", "handling": "Handled", "overseeing": "Oversaw", "launching": "Launched",
+    "setting up": "Set up", "automating": "Automated", "reducing": "Reduced", "increasing": "Increased"
+  },
+  "wordy_phrases": {
+    "in order to": "to",
+    "utilized": "used",
+    "utilised": "used",
+    "utilize": "use",
+    "utilise": "use",
+    "a number of": "several",
+    "on a daily basis": "daily",
+    "on a regular basis": "regularly",
+    "due to the fact that": "because",
+    "successfully ": "",
+    "various ": ""
+  },
+  "action_verbs": [
+    "achieved", "analysed", "analyzed", "automated", "built", "championed", "coached", "contributed", "coordinated",
+    "created", "cut", "delivered", "deployed", "designed", "developed", "drove", "established", "expanded",
+    "generated", "grew", "implemented", "improved", "increased", "launched", "led", "managed", "mentored",
+    "migrated", "negotiated", "optimised", "optimized", "organised", "organized", "oversaw", "owned", "planned",
+    "prepared", "produced", "ran", "reduced", "redesigned", "refactored", "resolved", "scaled", "set", "shipped",
+    "streamlined", "supported", "trained", "wrote", "moved", "cleaned", "carried", "administered", "assessed",
+    "cared", "handled", "monitored", "reported", "tested", "maintained", "introduced", "won"
+  ],
+  "section_headings": {
+    "summary": ["summary", "profile", "professional summary", "about me", "objective", "profil", "kurzprofil"],
+    "experience": ["experience", "work experience", "professional experience", "employment", "employment history", "career history", "berufserfahrung"],
+    "education": ["education", "academic background", "qualifications", "ausbildung", "studium"],
+    "skills": ["skills", "technical skills", "core skills", "competencies", "key skills", "kenntnisse", "fähigkeiten"],
+    "projects": ["projects", "selected projects", "projekte"],
+    "certifications": ["certifications", "certificates", "licences", "licenses", "zertifikate"],
+    "languages": ["languages", "sprachen"],
+    "other": ["interests", "hobbies", "publications", "awards", "volunteering", "references"]
+  }
+}

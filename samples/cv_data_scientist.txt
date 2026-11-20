@@ -1,0 +1,24 @@
+Alex Morgan
+Data Scientist · Berlin, Germany · alex.morgan@example.com
+
+SUMMARY
+Data scientist with 5 years of experience building machine learning models for e-commerce and logistics.
+
+EXPERIENCE
+Data Scientist, ShopLine GmbH, Berlin (2021 – present)
+- Built demand forecasting models in Python that improved stock planning
+- Worked on a recommendation system for the online shop
+- Created dashboards for the marketing team
+- Moved some batch jobs to the cloud
+
+Junior Data Analyst, CargoFlow AG, Hamburg (2019 – 2021)
+- Wrote SQL queries and reports for operations
+- Cleaned data and did analyses in pandas
+- Helped with an A/B testing framework
+
+EDUCATION
+M.Sc. Computer Science, TU Berlin (2019)
+
+SKILLS
+Python, pandas, scikit-learn, SQL, Tableau, Git, Docker, basic AWS
+Languages: English (fluent), German (B2)
