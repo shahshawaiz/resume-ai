@@ -7,17 +7,16 @@ Resume AI is an offline, rule-based CV tailoring tool. Everything below keeps th
 - [x] PDF and text CV parsing into sections and bullets (PyMuPDF)
 - [x] Job-ad parsing into required, nice-to-have and other lines; role, company, minimum years
 - [x] Five industry glossaries plus a cross-industry one, with aliases and case rules
-- [x] Weighted match score (required ×3, other ×1.5, nice to have ×1) with CV evidence for each term
+- [x] Term matching: found and missing job-ad terms, with the CV lines that back each one
 - [x] Rewrite rules: action verbs, filler words, the job ad's terminology for existing skills
-- [x] Basic ATS checks (contact details, headings, length, dates, numbers, pronouns, symbols, years)
 - [x] Cover letter template (English, German)
 - [x] Export: in-place rewrite of the original PDF, plain PDF, DOCX
-- [x] Local web UI, CLI with JSON output, pytest suite
 
 ## 1. ATS compatibility report
 
 Show how an applicant tracking system would read the file, not only what the text says.
 
+- [ ] **Basic checks:** contact details, standard section headings (Experience, Education, Skills), length, mixed date formats, bullets that don't start with an action verb, results without numbers, overlong bullets, first-person pronouns, icon-font characters, years of experience vs the job ad
 - [ ] **Parse simulation:** extract the text the way a simple ATS does (reading order, no layout) and show it next to the original, with lost or reordered content highlighted
 - [ ] **Layout risks:** detect multi-column layouts, tables, text in headers and footers, text boxes, images of text and missing text layers
 - [ ] **File checks:** fonts not embedded, unusual encodings or ligatures that break copy and paste, file size, page count
@@ -29,7 +28,8 @@ Show how an applicant tracking system would read the file, not only what the tex
 
 Make the score reflect what the recruiter actually cares about.
 
-- [ ] **Importance weights:** required vs nice to have (done), plus extra weight for terms in the job title, terms repeated in the ad, and terms in the first requirement bullets
+- [ ] **Weighted match score:** required ×3, other mentions ×1.5, nice to have ×1, giving an overall score and the share of required skills covered
+- [ ] **Importance weights:** extra weight for terms in the job title, terms repeated in the ad, and terms in the first requirement bullets
 - [ ] **Either/or groups:** "scikit-learn or PyTorch" is satisfied by one of them, not counted as two separate requirements
 - [ ] **Evidence weights:** a skill used in an experience bullet counts more than one only listed under Skills; recent roles count more than old ones
 - [ ] **Keyword stuffing guard:** flag terms repeated too often, and skills listed with no supporting bullet
@@ -72,7 +72,15 @@ Keep everything local, in one file the user owns.
 - [ ] One job ad against several CV variants, side by side
 - [ ] Country presets: German CV conventions (photo, date of birth, Lebenslauf section names) vs US/UK (no photo, no personal data), with a privacy check that flags personal data before export
 
-## 7. Quality and tooling
+## 7. Interfaces
+
+- [ ] **Local web UI:** Flask on 127.0.0.1 with plain HTML/CSS/JS (no CDN, no external fonts); CV upload or paste, job ad, glossary picker; tabs for match, changes (accept/reject each), checks and cover letter; downloads for every export
+- [ ] **Command line:** `python -m resume_ai analyze CV JOB` with a readable report and `--json` output for scripting; `serve` to start the web UI
+- [ ] **Done when:** the full flow (upload PDF → analyze → accept changes → download original-layout PDF) works end to end in the browser and is covered by tests
+
+## 8. Quality and tooling
+
+- [ ] **pytest suite:** unit tests for glossary matching (aliases, case rules, word boundaries), job-ad parsing, matching, each rewrite rule, the cover letter, PDF/DOCX export and the in-place PDF rewrite; web and CLI tests once those exist
 
 - [ ] Fictional benchmark corpus with labelled expected terms, sections and checks; CI runs the benchmark and fails on precision/recall regressions
 - [ ] Multi-column PDF reading order

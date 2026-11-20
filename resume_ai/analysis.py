@@ -1,7 +1,6 @@
-"""One call that runs the whole pipeline: parse, match, suggest, check, letter."""
+"""One call that runs the whole pipeline: parse, match, suggest, letter."""
 from typing import Optional
 
-from .checks import run_checks
 from .cover_letter import write_letter
 from .cv_parser import CV
 from .job_parser import parse_job
@@ -23,7 +22,6 @@ def analyze(cv: CV, job_text: str, industry: Optional[str] = None, lang: str = "
         "cv_lines": [{"index": l.index, "text": l.text, "section": l.section,
                       "heading": l.is_heading, "bullet": l.is_bullet} for l in cv.lines],
         "suggestions": [s.as_dict() for s in sugg],
-        "checks": [c.as_dict() for c in run_checks(cv, job)],
         "tailored_cv": tailored,
         "cover_letter": letter,
     }

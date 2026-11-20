@@ -6,8 +6,6 @@ from .cv_parser import CV
 from .glossary import Matcher, detect_industry, load_glossaries, matcher_for
 from .job_parser import JobAd, split_preferred_clause
 
-WEIGHTS = {"required": 3.0, "preferred": 1.0, "other": 1.5}
-
 
 @dataclass
 class TermResult:
@@ -29,8 +27,6 @@ class MatchResult:
     industry_label: str
     industry_ranking: List[tuple]
     terms: List[TermResult]
-    score: int
-    required_score: int
 
     def hits(self) -> List[TermResult]:
         return [t for t in self.terms if t.found]
@@ -42,7 +38,6 @@ class MatchResult:
         return {
             "industry": self.industry, "industry_label": self.industry_label,
             "industry_ranking": [{"industry": i, "score": s} for i, s in self.industry_ranking],
-            "score": self.score, "required_score": self.required_score,
             "terms": [t.as_dict() for t in self.terms],
         }
 
@@ -86,11 +81,5 @@ def match(cv: CV, job: JobAd, industry: Optional[str] = None) -> MatchResult:
                                   job_form=job_form, found=bool(evidence), cv_forms=forms, evidence=evidence))
     order = {"required": 0, "other": 1, "preferred": 2}
     results.sort(key=lambda r: (order[r.importance], not r.found, r.term.lower()))
-
-    total = sum(WEIGHTS[r.importance] for r in results)
-    got = sum(WEIGHTS[r.importance] for r in results if r.found)
-    req = [r for r in results if r.importance == "required"]
-    score = round(100 * got / total) if total else 0
-    req_score = round(100 * sum(r.found for r in req) / len(req)) if req else score
     return MatchResult(industry=industry, industry_label=glossaries[industry].label,
-                       industry_ranking=ranking, terms=results, score=score, required_score=req_score)
+                       industry_ranking=ranking, terms=results)
